@@ -1,5 +1,5 @@
 build with: 
-`docker buildx build -t <your_docker_name_here> .`
+`docker buildx build -t kali-pwner .`
 
 create an alias for quick launch:
 `alias kalid='docker run -it --rm -v "`pwd`:/chal" kali-pwner /bin/bash'`
