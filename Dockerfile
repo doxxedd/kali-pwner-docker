@@ -7,7 +7,7 @@ RUN apt update --fix-missing
 RUN apt update && apt -y install kali-linux-headless
 RUN apt install -y patchelf strace ltrace ruby-full vim xclip elfutils dnsutils dirbuster checksec impacket-scripts ncat btop mc
 RUN gem install one_gadget
-RUN pip3 install pwntools Ipython angr z3-solver ropper
+RUN pip3 install pwntools Ipython angr z3-solver ropper bsdextrautils
 
 # Pwndbg install
 WORKDIR /opt
