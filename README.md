@@ -1,3 +1,5 @@
+This will take a few mins to build
+
 build with: 
 `docker buildx build -t kali-pwner .`
 
