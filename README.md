@@ -1,6 +1,6 @@
 This will take a few mins to build
 
-build with: 
+Navigate to the directory of the Dockerfile and build with: 
 `docker buildx build -t kali-pwner .`
 
 create an alias for quick launch:
