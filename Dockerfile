@@ -9,7 +9,7 @@ RUN apt install -y patchelf strace ltrace ruby-full vim xclip elfutils dnsutils 
 RUN gem install one_gadget
 
 # python installs
-RUN pipx install pwntools Ipython gmpy2 z3-solver angr
+RUN pipx install pwntools Ipython z3-solver angr
 
 # Pwndbg install
 RUN curl -qsL 'https://install.pwndbg.re' | sh -s -- -t pwndbg-gdb
@@ -20,16 +20,15 @@ RUN wget https://github.com/io12/pwninit/releases/download/3.3.1/pwninit
 RUN chmod +x pwninit
 
 # fish
-RUN add-apt-repository ppa:fish-shell/release-4
-RUN apt update
-RUN apt install fish-shell
+RUN apt install fish -y
 RUN echo "set -U fish_prompt_pwd_dir_length 0" > /etc/fish/conf.d/00-prompt-config.fish
 
 # set work dir
 WORKDIR /chal
 
 # python venv
-RUN python3 -m venv venv
+RUN pipx ensurepath
 
 # open shell and activate venv
-CMD ["/bin/bash", "-c", "source /chal/venv/bin/activate && exec /usr/bin/fish"]
+CMD ["/bin/bash", "-c", "python3 -m venv venv && source chal/venv/bin/activate && exec /usr/bin/fish"]
+
